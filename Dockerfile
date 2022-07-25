@@ -1,5 +1,4 @@
-FROM centos:latest
-MAINTAINER shivayush143@gmail.com
-RUN yum install -y httpd \
-COPY ./public-html/ /var/www/html
-EXPOSE 80
+FROM httpd:2.4
+RUN apt update && apt install unzip
+ADD https://free-css.com/assets/files/free-css-templates/download/page279/ecourses.zip .
+RUN unzip ecourses.zip && mv online-courses-html-template/*  /usr/local/apache2/htdocs/
